@@ -8,18 +8,17 @@ title: University Academic Model
 ---
 
 erDiagram
-		STUDENT }|--|{ PROGRAM: studies
 		STUDENT ||--|{ ENROLLMENT : has
 		STUDENT ||--|{ STUDENT_OF: is
 		PROGRAM ||--|{ STUDENT_OF: a
 		COURSE ||--o{ ENROLLMENT : has
 		COURSE }|--|| PROFESSOR: teaches
-		CLASSROOM }|--|| BUILDING: "is in"
+		BUILDING ||--|{ CLASSROOM: "is in"
 		COURSE ||--|{ CLASS: has
-		CLASS }o--|| CLASSROOM: "happens in"
-		PROFESSOR }|--|| FACULTY: "member of"
-		PROGRAM }|--|| FACULTY: "offered by"
-		COURSE }|--|| PROGRAM: "part of"
+		CLASSROOM ||--o{ CLASS: "happens in"
+		FACULTY ||--|{ PROFESSOR: "member of"
+		FACULTY ||--|{ PROGRAM: "offered by"
+		PROGRAM ||--|{ COURSE: "part of"
 
     STUDENT {
 			varchar id_number PK
