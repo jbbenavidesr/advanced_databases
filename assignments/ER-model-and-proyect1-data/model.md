@@ -86,7 +86,8 @@ erDiagram
     }
 
     PERSON {
-        bigint id_number PK
+        int person_id PK
+        varchar id_number
         varchar id_type "cedula, pasaporte, etc"
         varchar first_name
         varchar middle_names
@@ -96,12 +97,12 @@ erDiagram
 
     STUDENT {
         int student_id PK
-        bigint person_id FK
+        int person_id FK
     }
 
     PROFESSOR {
         int professor_id PK
-        bigint person_id FK
+        int person_id FK
         int faculty_id FK
     }
 

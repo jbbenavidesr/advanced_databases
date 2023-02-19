@@ -4,7 +4,8 @@ create table FACULTY(
     faculty_name varchar(40)
 );
 create table PERSON (
-    id_number bigint primary key,
+    person_id int primary key,
+    id_number varchar(10),
     id_type varchar(10),
     first_name varchar(40),
     middle_names varchar(40),
@@ -13,12 +14,12 @@ create table PERSON (
 );
 create table STUDENT (
     student_id int primary key,
-    person_id bigint,
+    person_id int,
     constraint fk_student_person_id foreign key (person_id) references PERSON(id_number)
 );
 create table PROFESSOR(
     professor_id int primary key,
-    person_id bigint,
+    person_id int,
     faculty_id int,
     constraint fk_professor_person_id foreign key (person_id) references PERSON(id_number),
     constraint fk_professor_faculty_id foreign key (faculty_id) references FACULTY(faculty_id)
