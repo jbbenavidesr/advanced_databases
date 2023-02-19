@@ -77,14 +77,16 @@ erDiagram
     COURSE ||--|{ CLASS : "is organized in"
     CLASS }|--|| CLASSROOM : "happens in"
     BUILDING ||--|{ CLASSROOM : "has"
+    PERSON ||--|{ STUDENT : "is"
+    PERSON ||--|{ PROFESSOR : "is"
 
     FACULTY {
         varchar faculty_id PK
         varchar faculty_name
     }
 
-    STUDENT {
-        varchar id_number PK
+    PERSON {
+        bigint id_number PK
         varchar id_type "cedula, pasaporte, etc"
         varchar first_name
         varchar middle_names
@@ -92,13 +94,14 @@ erDiagram
         varchar second_surname
     }
 
+    STUDENT {
+        int student_id PK
+        bigint person_id FK
+    }
+
     PROFESSOR {
-        varchar id_number PK
-        varchar id_type "cedula, pasaporte, etc"
-        varchar first_name
-        varchar middle_names
-        varchar first_surname
-        varchar second_surname
+        int professor_id PK
+        bigint person_id FK
         int faculty_id FK
     }
 
@@ -122,7 +125,6 @@ erDiagram
         varchar group "grupo 1, grupo 2, etc, o titulo de trabajo o pasantia"
         int year
         int semester
-        varchar course_type "teorico, practico, trabajo de grado, etc"
     }
 
     CLASS {
@@ -135,9 +137,9 @@ erDiagram
     }
 
     CLASSROOM {
-        int room_id PK
-        varchar room_name "Algunos salones tienen nombre"
-        int room_no "El número dentro del edificio"
+        int classroom_id PK
+        varchar classroom_name "Algunos salones tienen nombre"
+        int classroom_no "El número dentro del edificio"
         int building_id FK
     }
 
@@ -150,12 +152,12 @@ erDiagram
     CURRICULAR_COMPONENT {
         int curricular_component_id PK
         int program_id FK
-        varchar component_name
-        int credits "créditos que se deben aprobar"
+        varchar curricular_component_name
+        int required_credits "créditos que se deben aprobar"
     }
 
     COURSE_ENROLLMENT {
-        int enrollment_id PK
+        int course_enrollment_id PK
         int academic_history_id FK
         int course_id FK
         int curricular_component_id FK
@@ -167,7 +169,7 @@ erDiagram
         int student_id FK
         int program_id FK
         varchar status "activo, graduado, retirado, etc"
-        varchar student_type "regular, especial, etc"
+        varchar history_type "regular, especial, etc"
         varchar title "titulo obtenido, si status es graduado"
     }
 ```
