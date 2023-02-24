@@ -9,7 +9,7 @@ funcionalidad académica de una universidad. Para comenzar es importante conside
 la estructura académica de la universidad, esta es información que en general se
 mantiene constante y tiene un esquema jerarquico. Usando el ejemplo de la Universidad
 Nacional, vemos que la universidad se divide en sedes, que a su vez se dividen en
-facultades e institutos, y estos se dividen en departamentos y otros institutos.
+facultades, y estas se dividen en departamentos.
 Cada departamento ofrece diferentes programas académicos de diferentes niveles y estos
 programas tienen una malla curricular que establece las asignaturas que se deben
 tomar para obtener el título. Las mallas curriculares se dividen en componentes para los
@@ -20,8 +20,8 @@ de las opciones disponibles. Finalmente, existe un componente de libre elección
 que el estudiante puede tomar asignaturas de cualquier departamento o instituto para
 cumplir con los créditos.
 
-Por otro lado, la universidad tiene profesores que están asociados a un departamento o
-instituto, y cada semestre los profesores dictan cursos correspondientes a alguna
+Por otro lado, la universidad tiene profesores que están asociados a un departamento y
+cada semestre los profesores dictan cursos correspondientes a alguna
 asignatura. Los cursos pueden ser tomados por estudiantes que pueden estar matriculados
 en diferentes programas académicos y cada curso entra a la historia académica de un
 estudiante bajo alguna tipología y tiene una calificación.
@@ -29,28 +29,6 @@ estudiante bajo alguna tipología y tiene una calificación.
 Finalmente, existe un componente práctico en la que cada curso se dicta en una serie de
 clases que tienen un horario y una duración, y estas clases se dictan en un aula de
 clase que está ubicada en un edificio dentro de alguno de los campus de la universidad.
-
-### Modelo simplificado
-
-Una vez ya tenemos como una imágen global de como funciona un sistema académico, vamos a
-desarrollar un modelo simplificado que nos permita empezar a trabajar y que, en caso de
-ser necesario, se pueda ir ampliando según las necesidades del proyecto.
-
-En este modelo simplificado, vamos a considerar que la universidad tiene una sola sede.
-Adicional, consideraremos que la universidad se divide unicamente en
-facultades que son quienes ofrecen los programas académicos. Los programas van a tener
-una malla curricular con componentes que tienen un número requerido de créditos, pero
-no especifican que materias pueden ser tomadas como parte del componente, esto lleva a
-que en este modelo, cada componente funcione como si fuera de libre elección para el que
-cualquier materia se puede clasificar como parte del componente en la historia de los
-estudiantes.
-Finalmente, cada estudiante tiene su historia académica de los programas en los que se
-ha matriculado y cada semestre se matricula en un conjunto de cursos que se toman para
-cumplir con los créditos de cada componente de la malla curricular. Los profesores
-dictan los cursos y cada curso tiene una calificación que se registra en la historia
-académica del estudiante. Los cursos se dictan en clases que tienen un horario y una
-duración, y estas clases se dictan en un aula de clase que está ubicada en un edificio
-de la universidad.
 
 ## Modelo relacional
 
@@ -63,9 +41,12 @@ title: Modelo relacional de un sistema académico universitario
 ---
 
 erDiagram
-    FACULTY ||--|{ PROGRAM : "offers"
-    FACULTY ||--|{ SUBJECT : "offers"
-    FACULTY ||--|{ PROFESSOR : "has associated"
+    HEADQUARTER ||--|{ FACULTY : "has"
+    HEADQUARTER ||--|{ BUILDING : "has"
+    FACULTY ||--|{ DEPARTMENT : "has"
+    DEPARTMENT ||--|{ PROGRAM : "offers"
+    DEPARTMENT ||--|{ SUBJECT : "offers"
+    DEPARTMENT ||--|{ PROFESSOR : "has associated"
     PROGRAM ||--|{ CURRICULAR_COMPONENT : "curriculum composed by"
     PROGRAM ||--|{ ACADEMIC_HISTORY : "is studied by"
     STUDENT ||--|{ ACADEMIC_HISTORY : "studies"
@@ -80,9 +61,20 @@ erDiagram
     PERSON ||--|{ STUDENT : "is"
     PERSON ||--|{ PROFESSOR : "is"
 
+    HEADQUARTER {
+        int headquarter_id PK
+        varchar headquarter_name
+    }
+
     FACULTY {
         varchar faculty_id PK
         varchar faculty_name
+    }
+
+    DEPARTMENT {
+        int department_id PK
+        varchar department_name
+        int faculty_id FK
     }
 
     PERSON {
