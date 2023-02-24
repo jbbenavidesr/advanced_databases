@@ -1,7 +1,19 @@
 create database university;
+create table HEADQUARTER(
+    headquarter_id int primary key,
+    headquarter_name varchar(40)
+);
 create table FACULTY(
     faculty_id int primary key,
-    faculty_name varchar(40)
+    faculty_name varchar(40),
+    headquarter_id int,
+    constraint fk_faculty_headquarter_id foreign key (headquarter_id) references HEADQUARTER(headquarter_id)
+);
+create table DEPARTMENT(
+    department_id int primary key,
+    department_name varchar(40),
+    faculty_id int,
+    constraint fk_department_faculty_id foreign key (faculty_id) references FACULTY(faculty_id)
 );
 create table PERSON (
     person_id int primary key,
@@ -11,6 +23,8 @@ create table PERSON (
     middle_names varchar(40),
     first_surname varchar(40),
     second_surname varchar(40),
+    birth_date date,
+    sex char
 );
 create table STUDENT (
     student_id int primary key,
@@ -20,22 +34,23 @@ create table STUDENT (
 create table PROFESSOR(
     professor_id int primary key,
     person_id int,
-    faculty_id int,
+    department_id int,
+    professor_type varchar(40),
     constraint fk_professor_person_id foreign key (person_id) references PERSON(id_number),
-    constraint fk_professor_faculty_id foreign key (faculty_id) references FACULTY(faculty_id)
+    constraint fk_professor_department_id foreign key (department_id) references DEPARTMENT(department_id)
 );
 create table PROGRAM(
     program_id int primary key,
     program_name varchar(40),
-    faculty_id int,
+    department_id int,
     program_type varchar(40),
-    constraint fk_program_faculty_id foreign key (faculty_id) references FACULTY(faculty_id)
+    constraint fk_program_department_id foreign key (department_id) references DEPARTMENT(department_id)
 );
 create table SUBJECT(
     subject_id int primary key,
     subject_name varchar(40),
-    faculty_id int,
-    constraint fk_subject_faculty_id foreign key (faculty_id) references FACULTY(faculty_id)
+    department_id int,
+    constraint fk_subject_department_id foreign key (department_id) references DEPARTMENT(department_id)
 );
 create table COURSE(
     course_id int primary key subject_id int,
@@ -49,7 +64,8 @@ create table COURSE(
 create table BUILDING(
     building_id int primary key,
     building_name varchar(40),
-    campus varchar(40)
+    campus varchar(40) headquarter_id int,
+    constraint fk_building_headquarter_id foreign key (headquarter_id) references HEADQUARTER(headquarter_id)
 );
 create table CLASSROOM(
     classroom_id int primary key,

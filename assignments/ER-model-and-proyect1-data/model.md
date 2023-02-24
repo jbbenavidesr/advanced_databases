@@ -69,6 +69,7 @@ erDiagram
     FACULTY {
         varchar faculty_id PK
         varchar faculty_name
+        int headquarter_id FK
     }
 
     DEPARTMENT {
@@ -97,20 +98,21 @@ erDiagram
     PROFESSOR {
         int professor_id PK
         int person_id FK
-        int faculty_id FK
+        int department_id FK
+        varchar professor_type "titular, asociado, etc"
     }
 
     PROGRAM {
         int program_id PK
         varchar program_name
-        varchar faculty_id FK
+        varchar department_id FK
         varchar program_type "pregrado, especializacion, maestria, doctorado, etc"
     }
 
     SUBJECT {
         int subject_id PK
         varchar subject_name
-        int faculty_id FK
+        int department_id FK
     }
 
     COURSE {
@@ -142,6 +144,7 @@ erDiagram
         int building_id PK
         varchar building_name
         varchar campus
+        int headquarter_id FK
     }
 
     CURRICULAR_COMPONENT {
