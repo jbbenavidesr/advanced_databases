@@ -85,6 +85,8 @@ erDiagram
         varchar middle_names
         varchar first_surname
         varchar second_surname
+        date birth_date
+        char sex "M, F"
     }
 
     STUDENT {
@@ -155,12 +157,15 @@ erDiagram
         int course_id FK
         int curricular_component_id FK
         float grade "nota obtenida en el curso"
+        varchar status "aprobado, reprobado, pendiente, etc"
     }
 
     ACADEMIC_HISTORY {
         int academic_history_id PK
         int student_id FK
         int program_id FK
+        date start_date
+        date end_date
         varchar status "activo, graduado, retirado, etc"
         varchar history_type "regular, especial, etc"
         varchar title "titulo obtenido, si status es graduado"
