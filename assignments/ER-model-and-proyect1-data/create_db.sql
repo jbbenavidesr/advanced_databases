@@ -53,9 +53,10 @@ create table SUBJECT(
     constraint fk_subject_department_id foreign key (department_id) references DEPARTMENT(department_id)
 );
 create table COURSE(
-    course_id int primary key subject_id int,
+    course_id int primary key,
+    subject_id int,
     professor_id int,
-    group varchar(100),
+    course_group varchar(100),
     year int,
     semester int,
     constraint fk_course_subject_id foreign key (subject_id) references SUBJECT(subject_id),
@@ -64,7 +65,8 @@ create table COURSE(
 create table BUILDING(
     building_id int primary key,
     building_name varchar(40),
-    campus varchar(40) headquarter_id int,
+    campus varchar(40),
+    headquarter_id int,
     constraint fk_building_headquarter_id foreign key (headquarter_id) references HEADQUARTER(headquarter_id)
 );
 create table CLASSROOM(
@@ -94,7 +96,8 @@ create table CURRICULAR_COMPONENT(
 create table ACADEMIC_HISTORY(
     academic_history_id int primary key,
     student_id int,
-    program_id int history_status varchar(40),
+    program_id int,
+    history_status varchar(40),
     history_type varchar(40),
     title varchar(40),
     constraint fk_academic_history_student_id foreign key (student_id) references STUDENT(student_id),

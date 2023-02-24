@@ -1,0 +1,11 @@
+professor_id,person_id,department_id,professor_type
+1,13,12,titular
+2,52,7,asociado
+3,16,11,titular
+4,48,1,asociado
+5,9,16,titular
+6,40,20,ocasional
+7,81,2,asociado
+8,52,20,titular
+9,76,10,titular
+10,88,4,titular

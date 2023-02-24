@@ -1,0 +1,21 @@
+academic_history_id,student_id,program_id,history_status,history_type,title
+1,1,15,graduado,regular,consequat
+2,2,5,activo,regular,
+3,3,6,activo,regular,
+4,4,13,graduado,regular,quis justo maecenas rhoncus
+5,5,13,en pausa,regular,
+6,6,5,graduado,regular,curabitur gravida nisi at
+7,7,10,activo,regular,
+8,8,1,activo,admisión con nivelación,
+9,9,18,graduado,regular,nisl
+10,10,16,retirado,regular,
+11,11,11,activo,regular,
+12,12,14,activo,regular,
+13,13,18,graduado,regular,nisl
+14,14,7,activo,admisión con nivelación,
+15,15,14,graduado,regular,donec posuere
+16,16,3,activo,regular,
+17,17,3,activo,regular,
+18,18,14,en pausa,programas especiales,
+19,19,4,activo,admisión con nivelación,
+20,20,2,activo,regular,

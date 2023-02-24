@@ -1,0 +1,21 @@
+program_id,program_name,department_id,program_type
+1,pretium iaculis justo,4,maestría
+2,metus sapien ut nunc,5,pregrado
+3,id,14,pregrado
+4,in,13,pregrado
+5,curabitur gravida nisi at,20,educación continua
+6,vestibulum ante,10,maestría
+7,tristique in,2,pregrado
+8,cubilia,14,pregrado
+9,sapien,20,especialización
+10,aenean auctor gravida,19,pregrado
+11,nibh in lectus pellentesque,16,educación continua
+12,lorem,9,educación continua
+13,quis justo maecenas rhoncus,1,especialización
+14,donec posuere,18,maestría
+15,consequat,2,pregrado
+16,vestibulum eget,8,doctorado
+17,vestibulum ante ipsum primis,19,pregrado
+18,nisl,9,pregrado
+19,sit amet nulla quisque,7,especialización
+20,in hac habitasse platea,6,pregrado

@@ -119,7 +119,7 @@ erDiagram
         int course_id PK
         int subject_id FK
         int professor_id FK
-        varchar group "grupo 1, grupo 2, etc, o titulo de trabajo o pasantia"
+        varchar course_group "grupo 1, grupo 2, etc, o titulo de trabajo o pasantia"
         int year
         int semester
     }
