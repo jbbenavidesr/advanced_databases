@@ -113,6 +113,7 @@ erDiagram
         int subject_id PK
         varchar subject_name
         int department_id FK
+        int credits "número de créditos de la asignatura"
     }
 
     COURSE {

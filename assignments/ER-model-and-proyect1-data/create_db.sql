@@ -18,25 +18,25 @@ create table DEPARTMENT(
 create table PERSON (
     person_id int primary key,
     id_number varchar(10),
-    id_type varchar(10),
+    id_type varchar(40),
     first_name varchar(40),
     middle_names varchar(40),
     first_surname varchar(40),
     second_surname varchar(40),
     birth_date date,
-    sex char
+    sex varchar(40)
 );
 create table STUDENT (
     student_id int primary key,
     person_id int,
-    constraint fk_student_person_id foreign key (person_id) references PERSON(id_number)
+    constraint fk_student_person_id foreign key (person_id) references PERSON(person_id)
 );
 create table PROFESSOR(
     professor_id int primary key,
     person_id int,
     department_id int,
     professor_type varchar(40),
-    constraint fk_professor_person_id foreign key (person_id) references PERSON(id_number),
+    constraint fk_professor_person_id foreign key (person_id) references PERSON(person_id),
     constraint fk_professor_department_id foreign key (department_id) references DEPARTMENT(department_id)
 );
 create table PROGRAM(
@@ -50,6 +50,7 @@ create table SUBJECT(
     subject_id int primary key,
     subject_name varchar(40),
     department_id int,
+    credits int,
     constraint fk_subject_department_id foreign key (department_id) references DEPARTMENT(department_id)
 );
 create table COURSE(

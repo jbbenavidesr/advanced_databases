@@ -1,0 +1,1 @@
+INSERT INTO HEADQUARTER VALUES ('1', 'Sede Bogotá');

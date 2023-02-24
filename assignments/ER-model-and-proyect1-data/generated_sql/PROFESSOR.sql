@@ -1,0 +1,10 @@
+INSERT INTO PROFESSOR VALUES ('1', '13', '12', 'titular');
+INSERT INTO PROFESSOR VALUES ('2', '52', '7', 'asociado');
+INSERT INTO PROFESSOR VALUES ('3', '16', '11', 'titular');
+INSERT INTO PROFESSOR VALUES ('4', '48', '1', 'asociado');
+INSERT INTO PROFESSOR VALUES ('5', '9', '16', 'titular');
+INSERT INTO PROFESSOR VALUES ('6', '40', '20', 'ocasional');
+INSERT INTO PROFESSOR VALUES ('7', '81', '2', 'asociado');
+INSERT INTO PROFESSOR VALUES ('8', '52', '20', 'titular');
+INSERT INTO PROFESSOR VALUES ('9', '76', '10', 'titular');
+INSERT INTO PROFESSOR VALUES ('10', '88', '4', 'titular');

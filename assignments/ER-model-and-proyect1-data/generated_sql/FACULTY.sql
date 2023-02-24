@@ -1,0 +1,4 @@
+INSERT INTO FACULTY VALUES ('1', 'Ciencias', '1');
+INSERT INTO FACULTY VALUES ('2', 'Ingeniería', '1');
+INSERT INTO FACULTY VALUES ('3', 'Medicina', '1');
+INSERT INTO FACULTY VALUES ('4', 'Artes', '1');
