@@ -1,3 +1,4 @@
+-- average grade per subject
 SELECT subject_name as "materia",
     AVG(grade) as "nota promedio"
 FROM course_enrollment

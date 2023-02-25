@@ -1,3 +1,4 @@
+-- current grade of students in their program
 SELECT p.first_name || ' ' || p.first_surname as "nombre",
     ROUND(
         (SUM(c.grade * su.credits) / SUM(su.credits))::numeric,
